@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import myPhoto from "../assets/myPhoto.png";
+import myPhoto from "../assets/myPhoto2.jpg";
 import BlurEffect from "./BlurEffect";
 
 const textVariants = {
@@ -19,7 +19,7 @@ function Hero() {
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        const typingSpeed = isDeleting ? 50 : 100;
+        const typingSpeed = isDeleting ? Math.random() * 50 + 25 : Math.random() * 100 + 50;
         const timeout = setTimeout(() => {
             if (!isDeleting && charIndex < roles[currentIndex].length) {
                 setTypedText((prev) => prev + roles[currentIndex][charIndex]);
@@ -43,7 +43,7 @@ function Hero() {
                 id="hero"
                 className="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left bg-gradient-to-b from-gray-800 to-gray-900 px-6 md:px-16 relative"
             >
-                <div className="relative">
+                <div className="relative mt-[-0px]">
                     <motion.img
                         src={myPhoto}
                         alt="Anup Kumar"
