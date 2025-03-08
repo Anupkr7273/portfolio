@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import Button from "./Button";
 import emailjs from "emailjs-com";
+import GradientWrapper from "./GradientWrapper";
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -47,6 +48,7 @@ const Contact = () => {
     
 
     return (
+        <GradientWrapper>
         <section id="contact" className="py-20 px-6 text-center bg-gray-800">
             <h2 className="text-3xl font-bold">Get in Touch</h2>
             <p className="text-gray-500 dark:text-gray-400 mt-2">Have a project in mind or just want to say hi? Drop me a message!</p>
@@ -112,6 +114,7 @@ const Contact = () => {
                 </a>
             </div>
         </section>
+        </GradientWrapper>
     );
 };
 

@@ -1,19 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [visible, setVisible] = useState(true);
     const navbarHeight = 64; // Adjust based on your navbar height
 
+    // Handle Scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                setVisible(false); // Hide when scrolling down
+            } else {
+                setVisible(true); // Show when scrolling up
+            }
+            setLastScrollY(window.scrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
     return (
-        <nav className="p-4 shadow-md bg-gray-800 text-white fixed w-full top-0 z-50">
+        <motion.nav
+            className="p-4 shadow-md bg-gray-800 text-white fixed w-full top-0 z-50"
+            initial={{ y: 0 }}
+            animate={{ y: visible ? 0 : "-100%" }} // Smooth hide/show
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
             <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-bold">Welcome!</h1>
+                <h1 className="text-xl font-bold">Portfolio</h1>
 
                 {/* Hamburger Menu Button */}
-                <button 
+                <button
                     className="md:hidden text-white focus:outline-none"
                     onClick={() => setIsOpen(!isOpen)}
                 >
@@ -28,7 +50,7 @@ function Navbar() {
                                 to={section}
                                 smooth={true}
                                 duration={500}
-                                offset={-navbarHeight} // Adjust for navbar height
+                                offset={-navbarHeight}
                                 className="hover:text-gray-400 cursor-pointer"
                             >
                                 {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -54,9 +76,9 @@ function Navbar() {
                                     to={section}
                                     smooth={true}
                                     duration={500}
-                                    offset={-navbarHeight} // Adjust offset
+                                    offset={-navbarHeight}
                                     className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600 cursor-pointer"
-                                    onClick={() => setIsOpen(false)} // Close menu on click
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     {section.charAt(0).toUpperCase() + section.slice(1)}
                                 </Link>
@@ -65,7 +87,7 @@ function Navbar() {
                     </motion.ul>
                 )}
             </AnimatePresence>
-        </nav>
+        </motion.nav>
     );
 }
 
