@@ -4,6 +4,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { useEffect } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
@@ -15,8 +16,9 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Projects />
+      {/* <Projects /> */}
       <Contact />
+      <Footer />
     </div>
   );
 }

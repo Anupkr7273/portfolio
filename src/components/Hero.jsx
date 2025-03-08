@@ -38,9 +38,9 @@ function Hero() {
     }, [charIndex, isDeleting, currentIndex]);
 
     return (
-        <BlurEffect>
+        // <BlurEffect>
             <section
-                id="hero"
+                id="home"
                 className="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left bg-gradient-to-b from-gray-800 to-gray-900 px-6 md:px-16 relative"
             >
                 <div className="relative mt-[-0px]">
@@ -93,7 +93,7 @@ function Hero() {
                     <div className="w-8 h-8 border-b-4 border-r-4 border-dotted border-zinc-700 rotate-45"></div>
                 </motion.div>
             </section>
-        </BlurEffect>
+        // </BlurEffect>
     );
 }
 
