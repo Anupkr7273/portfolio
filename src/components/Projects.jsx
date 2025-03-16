@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import scatch1 from '../assets/login.jpg';
-import scatch2 from '../assets/shop.jpg';
-import ochi from '../assets/ochi.jpg';
-import ochi_2 from '../assets/ochi_2.jpg';
-import ochi_3 from '../assets/ochi_3.jpg';
+import scatch1 from '../assets/login.jpeg';
+import scatch2 from '../assets/shop.jpeg';
+import ochi from '../assets/ochi.jpeg';
+import ochi_2 from '../assets/ochi_2.jpeg';
+import ochi_3 from '../assets/ochi_3.jpeg';
 
 const projects = [
     {
