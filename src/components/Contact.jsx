@@ -18,18 +18,16 @@ const Contact = () => {
         setStatus("Sending...");
     
         const serviceID = "service_anupkr7273";
-        const userTemplateID = "template_nglbzci"; // Auto-reply template
-        const adminTemplateID = "template_9cxawaw"; // Admin notification template
+        const userTemplateID = "template_nglbzci";
+        const adminTemplateID = "template_9cxawaw";
         const publicKey = "b8dNFIz8JFpFQ-8yF";
     
-        // Send message to admin
         emailjs.sendForm(serviceID, adminTemplateID, e.target, publicKey)
             .then((response) => {
                 console.log("Message sent to admin:", response);
     
-                // Now send auto-reply to user
                 return emailjs.send(serviceID, userTemplateID, {
-                    to_email: formData.email, // Ensure this matches your template variable
+                    to_email: formData.email,
                     name: formData.name,
                     message: formData.message
                 }, publicKey);
@@ -45,8 +43,6 @@ const Contact = () => {
             });
     };
     
-    
-
     return (
         <GradientWrapper>
         <section id="contact" className="py-20 px-6 text-center bg-gray-800">
@@ -67,7 +63,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700"
+                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
                 />
                 <input
                     type="email"
@@ -76,7 +72,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700"
+                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
                 />
                 <textarea
                     name="message"
@@ -84,32 +80,32 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700"
+                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
                 />
-                <Button type="submit" text="Send Message" className="bg-gray-900 text-white hover:bg-gray-900" />
+                <Button type="submit" text="Send Message" className="bg-gray-900 text-white hover:bg-gray-900 active:scale-95 focus:ring-2 focus:ring-gray-500 focus:outline-none" />
             </motion.form>
 
             {status && <p className="mt-4 text-gray-600 dark:text-gray-300">{status}</p>}
 
             <div className="mt-8 flex justify-center space-x-6">
                 <a href="https://github.com/anupkr7273" target="_blank" rel="noopener noreferrer">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.1, damping: 10 }}>
-                        <FaGithub className="text-2xl transition-colors duration-300 hover:text-gray-900" />
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} whileFocus={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.1, damping: 10 }}>
+                        <FaGithub className="text-2xl transition-colors duration-300 hover:text-gray-900 focus:outline-none" />
                     </motion.div>
                 </a>
                 <a href="https://linkedin.com/in/anupkr8540" target="_blank" rel="noopener noreferrer">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.15, damping: 10 }}>
-                        <FaLinkedin className="text-2xl transition-colors duration-300 hover:text-gray-900" />
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} whileFocus={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.15, damping: 10 }}>
+                        <FaLinkedin className="text-2xl transition-colors duration-300 hover:text-gray-900 focus:outline-none" />
                     </motion.div>
                 </a>
                 <a href="mailto:anupkr7273@gmail.com">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.2, damping: 10 }}>
-                        <FaEnvelope className="text-2xl transition-colors duration-300 hover:text-gray-900" />
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} whileFocus={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.2, damping: 10 }}>
+                        <FaEnvelope className="text-2xl transition-colors duration-300 hover:text-gray-900 focus:outline-none" />
                     </motion.div>
                 </a>
                 <a href="tel:+917903873631">
-                    <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.25, damping: 10 }}>
-                        <FaPhone className="text-2xl transition-colors duration-300 hover:text-gray-900" />
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} whileFocus={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300, delay: 0.25, damping: 10 }}>
+                        <FaPhone className="text-2xl transition-colors duration-300 hover:text-gray-900 focus:outline-none" />
                     </motion.div>
                 </a>
             </div>
