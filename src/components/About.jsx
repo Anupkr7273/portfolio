@@ -1,16 +1,18 @@
-// src/components/AboutMe.jsx
+import { useState } from "react";
 import { motion } from "framer-motion";
 import myPhoto from "../assets/myPhoto1.png";
 import BlurEffect from "./BlurEffect";
 
 const AboutMe = () => {
+    const [expanded, setExpanded] = useState(false);
+
     return (
         <section id="about" className="min-h-screen flex flex-col items-center justify-center px-6 md:px-16 bg-gradient-to-b from-gray-900 to-gray-800 relative">
             {/* Blur Effect Overlay */}
             <BlurEffect>
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-gray-900 via-gray-900/50 to-transparent z-0"></div>
             </BlurEffect>
-            
+
             <div className="max-w-4xl w-full glassmorphism p-8 rounded-lg shadow-xl flex flex-col md:flex-row items-center relative z-10">
                 {/* Left Side: Text Content */}
                 <motion.div
@@ -20,12 +22,46 @@ const AboutMe = () => {
                     transition={{ duration: 1 }}
                 >
                     <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-                    <p className="text-gray-300 leading-relaxed">
-                        I am Anup Kumar, a passionate Full-Stack Developer and Web Designer who loves crafting modern, interactive, and high-performing web applications.
-                        With a strong foundation in both frontend and backend technologies, I enjoy transforming creative ideas into reality through clean, efficient code.
-                        I specialize in building user-friendly interfaces, optimizing performance, and ensuring seamless user experiences.
-                        My journey into web development started with curiosity and has now become my profession and passion. I am always eager to learn new technologies,
-                        take on challenges, and contribute to impactful projects that make a difference.
+
+                    {/* Read More Feature ONLY for Mobile */}
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base md:leading-relaxed">
+                        <span className="hidden md:inline">
+                            {/* Full text visible on PC */}
+                            I am Anup Kumar, a passionate Full-Stack Developer and Web Designer who loves crafting modern, interactive, and high-performing web applications.
+                            With a strong foundation in both frontend and backend technologies, I enjoy transforming creative ideas into reality through clean, efficient code.
+                            I specialize in building user-friendly interfaces, optimizing performance, and ensuring seamless user experiences.
+                            My journey into web development started with curiosity and has now become my profession and passion. I am always eager to learn new technologies,
+                            take on challenges, and contribute to impactful projects that make a difference.
+                        </span>
+
+                        {/* Read More/Less only for small screens */}
+                        <span className="md:hidden">
+                            {expanded ? (
+                                <>
+                                    I am Anup Kumar, a passionate Full-Stack Developer and Web Designer who loves crafting modern, interactive, and high-performing web applications.
+                                    With a strong foundation in both frontend and backend technologies, I enjoy transforming creative ideas into reality through clean, efficient code.
+                                    I specialize in building user-friendly interfaces, optimizing performance, and ensuring seamless user experiences.
+                                    My journey into web development started with curiosity and has now become my profession and passion. I am always eager to learn new technologies,
+                                    take on challenges, and contribute to impactful projects that make a difference.
+                                    <span
+                                        className="cursor-pointer font-semibold ml-2 text-green-400"
+                                        onClick={() => setExpanded(false)}
+                                    >
+                                        Read Less
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    Passionate Full-Stack Developer & Web Designer, crafting interactive and high-performing web applications.
+                                    <span
+                                        className="cursor-pointer font-semibold ml-2 text-green-400"
+                                        onClick={() => setExpanded(true)}
+                                    >
+                                        Read More
+                                    </span>
+                                </>
+                            )}
+                        </span>
                     </p>
 
                     {/* Quick Facts Section */}
@@ -48,10 +84,10 @@ const AboutMe = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                 >
-                    <img 
+                    <img
                         src={myPhoto}
-                        alt="Anup Kumar" 
-                        className="w-64 h-64 object-cover rounded-full shadow-lg" 
+                        alt="Anup Kumar"
+                        className="w-64 h-64 object-cover rounded-full shadow-lg"
                     />
                 </motion.div>
             </div>
@@ -75,7 +111,7 @@ const AboutMe = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.3 }}
                     >
-                        <h4 className="text-xl font-semibold text-white">Bachelors in Computer Application(BCA)</h4>
+                        <h4 className="text-xl font-semibold text-white">Bachelors in Computer Application (BCA)</h4>
                         <p className="text-gray-400">2020 - 2023</p>
                     </motion.div>
                 </div>

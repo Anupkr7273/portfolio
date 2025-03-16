@@ -29,6 +29,7 @@ const slideshowImages_scatch = [scatch1, scatch2];
 
 const ProjectCard = ({ title, slideshow, video, details }) => {
     const [currentImage, setCurrentImage] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
     const images = slideshow === 'ochi' ? slideshowImages_Ochi : slideshow === 'scatch' ? slideshowImages_scatch : [];
 
     useEffect(() => {
@@ -47,6 +48,10 @@ const ProjectCard = ({ title, slideshow, video, details }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onFocus={() => setIsHovered(true)}
+            onBlur={() => setIsHovered(false)}
         >
             <div className="relative overflow-hidden rounded-lg h-full">
                 {video ? (
@@ -67,11 +72,9 @@ const ProjectCard = ({ title, slideshow, video, details }) => {
                     </div>
                 ) : null}
                 <motion.div
-                    className="absolute bottom-0 left-0 w-full h-full flex items-center justify-center opacity-0"
-                    style={{ background: 'linear-gradient(to top, rgba(1, 2, 1, 0.9),rgba(34, 197, 94, 0.9), rgba(34, 197, 94, 0))' }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 0 }}
+                    className="absolute bottom-0 left-0 w-full h-full flex items-center justify-center"
+                    style={{ background: 'linear-gradient(to top, rgba(1, 2, 1, 0.8),rgba(34, 197, 94, 0.8), rgba(34, 197, 94, 0))' }}
+                    animate={{ opacity: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
                     <p className="text-white text-lg font-semibold text-center">{details}</p>
