@@ -2,7 +2,7 @@ import Button from "./Button";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import myPhoto from "../assets/myPhoto2.jpg";
-import BlurEffect from "./BlurEffect";
+import resume from "../assets/resume.pdf"; // Importing the resume file
 
 const textVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -37,63 +37,73 @@ function Hero() {
         return () => clearTimeout(timeout);
     }, [charIndex, isDeleting, currentIndex]);
 
+    const handleScrollToProjects = () => {
+        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
-        // <BlurEffect>
-            <section
-                id="home"
-                className="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left bg-gradient-to-b from-gray-800 to-gray-900 px-6 md:px-16 relative"
-            >
-                <div className="relative mt-[-0px]">
-                    <motion.img
-                        src={myPhoto}
-                        alt="Anup Kumar"
-                        animate={{ y: [0, -2, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg mb-6 md:mb-0 md:mr-12 relative z-10"
-                    />
-                </div>
-                <div>
-                    <div className="flex gap-2">
-                        <motion.h1
-                            className="text-5xl font-bold text-zinc-500 drop-shadow-lg"
-                            initial={{ opacity: 0, y: -50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1 }}
-                        >
-                            <span className="text-zinc-500 glow-effect">Hi, I'm </span>
-                            <span className="text-zinc-100 glow-effect">Anup Kumar</span>
-
-                        </motion.h1>
-                    </div>
-
-                    <motion.p
-                        className="text-xl mt-4"
-                        variants={textVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        A <span className="text-green-400">{typedText}</span>
-                    </motion.p>
-
-                    <motion.div
-                        className="mt-6 flex space-x-4 justify-center md:justify-start"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 1 }}
-                    >
-                        <Button text="View My Work" className="bg-gray-900 text-white hover:bg-gray-900" />
-                        <Button text="Download Resume" href="" download className="bg-gray-900 text-white hover:bg-gray-900" />
-                    </motion.div>
-                </div>
-                <motion.div
-                    className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
-                    animate={{ y: [0, -3, 0] }}
+        <section
+            id="home"
+            className="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left bg-gradient-to-b from-gray-800 to-gray-900 px-6 md:px-16 relative"
+        >
+            <div className="relative mt-[-0px]">
+                <motion.img
+                    src={myPhoto}
+                    alt="Anup Kumar"
+                    animate={{ y: [0, -2, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
+                    className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg mb-6 md:mb-0 md:mr-12 relative z-10"
+                />
+            </div>
+            <div>
+                <div className="flex gap-2">
+                    <motion.h1
+                        className="text-4xl sm:text-4xl md:text-5xl font-bold text-zinc-500 drop-shadow-lg"
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        <span className="text-zinc-500 glow-effect">Hi, I'm </span>
+                        <span className="text-zinc-100 glow-effect">Anup Kumar</span>
+                    </motion.h1>
+                </div>
+
+                <motion.p
+                    className="text-xl mt-4"
+                    variants={textVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
-                    <div className="w-8 h-8 border-b-4 border-r-4 border-dotted border-zinc-700 rotate-45"></div>
+                    A <span className="text-green-400">{typedText}</span>
+                </motion.p>
+
+                <motion.div
+                    className="mt-6 flex space-x-4 justify-center md:justify-start"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1 }}
+                >
+                    <Button 
+                        text="View My Work" 
+                        onClick={handleScrollToProjects} 
+                        className="bg-gray-900 text-white"
+                    />
+                    <Button 
+                        text="Download Resume" 
+                        href={resume} 
+                        download="Anup_Kumar_Resume.pdf" 
+                        className="bg-gray-900 text-white inline-block "
+                    />
                 </motion.div>
-            </section>
-        // </BlurEffect>
+            </div>
+            <motion.div
+                className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+            >
+                <div className="w-8 h-8 border-b-4 border-r-4 border-dotted border-zinc-700 rotate-45"></div>
+            </motion.div>
+        </section>
     );
 }
 

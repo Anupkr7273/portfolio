@@ -33,7 +33,7 @@ function Button({ text, onClick, href, download, className }) {
             >
                 {hoverPosition && (
                     <span
-                        className="absolute w-6 h-24 bg-zinc-700 opacity-20 transform -translate-x-1/2 -translate-y-1/2 rotate-20 pointer-events-none"
+                        className="absolute w-6 h-40 bg-zinc-700 opacity-20 transform -translate-x-1/2 -translate-y-1/2 rotate-20 pointer-events-none"
                         style={{
                             top: hoverPosition.y,
                             left: hoverPosition.x,
