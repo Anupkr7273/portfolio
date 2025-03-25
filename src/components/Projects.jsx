@@ -5,12 +5,15 @@ import scatch2 from '../assets/shop.jpeg';
 import ochi from '../assets/ochi.jpeg';
 import ochi_2 from '../assets/ochi_2.jpeg';
 import ochi_3 from '../assets/ochi_3.jpeg';
+import pan_1 from '../assets/desktop.jpeg';
+import pan_2 from '../assets/extra_fields.jpeg';
+import pan_3 from '../assets/error.jpeg';
 
 const projects = [
     {
         title: 'PAN Card Request Form',
         details: 'Dynamic, responsive form with validation, API integration, and mobile support.',
-        // video: 
+        slideshow: 'pan', 
     },
     {
         title: 'Scatch',
@@ -26,17 +29,19 @@ const projects = [
 
 const slideshowImages_Ochi = [ochi, ochi_2, ochi_3];
 const slideshowImages_scatch = [scatch1, scatch2];
+const slideshowImages_pan = [pan_1, pan_2, pan_3];
 
 const ProjectCard = ({ title, slideshow, video, details }) => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
-    const images = slideshow === 'ochi' ? slideshowImages_Ochi : slideshow === 'scatch' ? slideshowImages_scatch : [];
+    const images = slideshow === 'ochi' ? slideshowImages_Ochi : slideshow === 'scatch' ? slideshowImages_scatch : slideshow === 'pan' ? slideshowImages_pan : [];
 
     useEffect(() => {
         if (images.length <= 1) return;
+        const delay = Math.floor(Math.random() * 3000) + 1000; // Random delay to desynchronize slideshows
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 3000);
+        }, 3000 + delay);
         return () => clearInterval(interval);
     }, [images]);
 
