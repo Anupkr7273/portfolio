@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { FaGithub } from 'react-icons/fa';
 import scatch1 from '../assets/login.jpeg';
 import scatch2 from '../assets/shop.jpeg';
 import ochi from '../assets/ochi.jpeg';
@@ -13,17 +14,20 @@ const projects = [
     {
         title: 'PAN Card Request Form',
         details: 'Dynamic, responsive form with validation, API integration, and mobile support.',
-        slideshow: 'pan', 
+        slideshow: 'pan',
+        github: 'https://github.com/Anupkr7273/Bootstrap-form'
     },
     {
         title: 'Scatch',
         details:'Full-stack e-commerce platform with authentication, admin dashboard, and optimization.',
         slideshow: 'scatch',
+        github: 'https://github.com/Anupkr7273/Scatch'
     },
     {
         title: 'Ochi.Design',
         details: 'UI/UX website replica with animations, responsiveness, and performance optimizations.',
         slideshow: 'ochi',
+        github: 'https://github.com/Anupkr7273/ochi'
     },
 ];
 
@@ -31,7 +35,7 @@ const slideshowImages_Ochi = [ochi, ochi_2, ochi_3];
 const slideshowImages_scatch = [scatch1, scatch2];
 const slideshowImages_pan = [pan_1, pan_2, pan_3];
 
-const ProjectCard = ({ title, slideshow, video, details }) => {
+const ProjectCard = ({ title, slideshow, video, details, github }) => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const images = slideshow === 'ochi' ? slideshowImages_Ochi : slideshow === 'scatch' ? slideshowImages_scatch : slideshow === 'pan' ? slideshowImages_pan : [];
@@ -77,12 +81,17 @@ const ProjectCard = ({ title, slideshow, video, details }) => {
                     </div>
                 ) : null}
                 <motion.div
-                    className="absolute bottom-0 left-0 w-full h-full flex items-center justify-center"
+                    className="absolute bottom-0 left-0 w-full h-full flex flex-col items-center justify-center"
                     style={{ background: 'linear-gradient(to top, rgba(1, 2, 1, 0.8),rgba(34, 197, 94, 0.8), rgba(34, 197, 94, 0))' }}
                     animate={{ opacity: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
                     <p className="text-white text-lg font-semibold text-center">{details}</p>
+                    {github && (
+                        <a href={github} target="_blank" rel="noopener noreferrer" className="mt-2 text-white text-sm flex items-center">
+                            <FaGithub className="mr-2" /> View on GitHub
+                        </a>
+                    )}
                 </motion.div>
             </div>
         </motion.div>
