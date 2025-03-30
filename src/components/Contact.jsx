@@ -63,7 +63,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
+                    className="peer w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 focus:outline-none autofill:bg-transparent autofill:text-white"
                 />
                 <input
                     type="email"
@@ -72,7 +72,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
+                    className="peer w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 focus:outline-none autofill:bg-transparent autofill:text-white"
                 />
                 <textarea
                     name="message"
@@ -80,7 +80,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 active:border-gray-400 focus:outline-none"
+                    className="peer w-full p-3 border rounded-xl dark:bg-gray-700 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 focus:outline-none autofill:bg-transparent autofill:text-white"
                 />
                 <Button type="submit" text="Send Message" className="bg-gray-900 text-white hover:bg-gray-900 active:scale-95 focus:ring-2 focus:ring-gray-500 focus:outline-none" />
             </motion.form>
