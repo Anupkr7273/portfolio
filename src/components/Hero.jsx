@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import myPhoto from "../assets/myPhoto2.jpg";
+import myPhoto from "../assets/myPhoto.jpg";
 import resume from "../assets/resume.pdf"; // Importing the resume file
 
 const textVariants = {
@@ -52,7 +52,7 @@ function Hero() {
                     alt="Anup Kumar"
                     animate={{ y: [0, -2, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="w-48 h-48 md:w-64 md:h-64 rounded-full shadow-lg mb-6 md:mb-0 md:mr-12 relative z-10"
+                    className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg mb-6 md:mb-0 md:mr-12 relative z-10"
                 />
             </div>
             <div>

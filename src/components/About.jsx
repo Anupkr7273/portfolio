@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import myPhoto from "../assets/myPhoto1.png";
+import myPhoto from "../assets/myPhoto.jpg";
 import BlurEffect from "./BlurEffect";
 
 const AboutMe = () => {
