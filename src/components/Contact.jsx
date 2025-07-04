@@ -4,7 +4,6 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import Button from "./Button";
 import emailjs from "emailjs-com";
 import GradientWrapper from "./GradientWrapper";
-
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState("");
