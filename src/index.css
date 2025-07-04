@@ -11,25 +11,3 @@ textarea:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #374151 inset !important; /* #1f2937 is gray-800 */
     border: 1px solid #374151 !important; /* #374151 is gray-700 */
 }
-
-/* Gradient fallback animation */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient-flow {
-  background-size: 200% 200%;
-  animation: gradientFlow 10s ease infinite;
-}
-
-/* Optional glow effect for text */
-.glow-effect {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-/* Smooth transitions for buttons */
-.transition-colors {
-  transition: background-color 0.3s ease;
-}
