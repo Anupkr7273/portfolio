@@ -68,7 +68,7 @@ const AboutMe = () => {
                     <div className="mt-6 grid grid-cols-2 gap-4">
                         <div className="bg-gray-800 p-4 rounded-lg text-center">
                             <span className="text-lg font-semibold text-white">Profile</span>
-                            <p className="text-green-400">Freelancer</p>
+                            <p className="text-green-400">Software Engineer</p>
                         </div>
                         <div className="bg-gray-800 p-4 rounded-lg text-center">
                             <span className="text-lg font-semibold text-white">Location</span>
@@ -102,8 +102,8 @@ const AboutMe = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <h4 className="text-xl font-semibold text-white">Full-Stack Developer - Freelancing</h4>
-                        <p className="text-gray-400">2024 - Present</p>
+                        <h4 className="text-xl font-semibold text-white">Software Engineer - World On Networks</h4>
+                        <p className="text-gray-400">2023 - Present</p>
                     </motion.div>
                     <motion.div
                         className="pl-6 pb-6"
