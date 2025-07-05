@@ -88,13 +88,13 @@ function Hero() {
                     <Button
                         text="View My Work"
                         onClick={handleScrollToProjects}
-                        className="bg-gray-900 text-white hover:bg-gray-700 transition-colors"
+                        className="bg-gray-900 text-white hover:bg-gray-900 transition-colors"
                     />
                     <Button
                         text="Download Resume"
                         href={resume}
                         download="Anup_Kumar_Resume.pdf"
-                        className="bg-gray-900 text-white hover:bg-gray-700 transition-colors inline-block"
+                        className="bg-gray-900 text-white hover:bg-gray-900 transition-colors inline-block"
                     />
                 </motion.div>
             </div>
